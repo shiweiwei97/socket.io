@@ -2,7 +2,7 @@ importScripts('/socket.io/socket.io.js');
 
 var socket = io();
 
-socket.on('chat message', function(msg){
+socket.on('chat', function(msg){
   postMessage(msg);
 });
 

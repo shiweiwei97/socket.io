@@ -23,14 +23,13 @@
     <script>
       $(function () {
         var worker = new Worker('worker.js');
-        worker.postMessage('worker initialized');
 
         worker.onmessage = function(message) {
           $('#messages').append($('<li>').text(message.data));
         };
 
         $('form').submit(function() {
-          worker.postMessage({ type: 'chat message', message: $('#m').val() });
+          worker.postMessage({ type: 'chat', message: $('#m').val() });
 
           $('#m').val('');
           return false;
