@@ -3,10 +3,12 @@ var server = require('http').createServer(app);
 var io = require('../..')(server);
 var port = process.env.PORT || 3000;
 
-
-
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/worker.js', function(req, res){
+  res.sendFile(__dirname + '/worker.js');
 });
 
 io.on('connection', function(socket){
